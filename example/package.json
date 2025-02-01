@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "tolgee pull --api-key=$TOLGEE_API_KEY --path=./public/i18n",
+    "prebuild": "tolgee pull --api-key=$TOLGEE_API_KEY --path=./public/i18n && cd ../src && npm i",
     "build": "npm run prebuild && astro build",
     "preview": "astro preview",
     "astro": "astro"
