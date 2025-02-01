@@ -2,6 +2,9 @@
 
 I built this to allow Tolgee to be integrated into Astro. This is a prototype, the idea is to move it to its own package.
 
+**Demo**
+Available here https://astro-tolgee-poc.pages.dev
+
 **How to install:**
 Modify you astro.config.mjs file as follows:
 
