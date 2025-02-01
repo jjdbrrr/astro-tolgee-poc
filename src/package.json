@@ -1,0 +1,10 @@
+{
+    "name": "demo",
+    "type": "module",
+    "version": "0.0.1",
+    "main": "index.js",
+    "dependencies": {
+        "@tolgee/web": "^6.0.1",
+        "astro": "^5.2.3"
+    }
+}

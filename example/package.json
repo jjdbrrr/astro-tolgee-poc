@@ -1,0 +1,16 @@
+{
+  "name": "demo",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "prebuild": "tolgee pull --api-key=$TOLGEE_API_KEY --path=./public/i18n",
+    "build": "npm run prebuild && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tolgee/web": "^6.0.1",
+    "astro": "^5.2.3"
+  }
+}

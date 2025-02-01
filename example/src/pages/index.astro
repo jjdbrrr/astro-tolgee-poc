@@ -1,0 +1,8 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslation } from '../../../src/index';
+const { t } = await useTranslation();
+---
+<Layout>
+    { t('WELCOME') }
+</Layout>
