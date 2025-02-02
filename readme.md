@@ -6,7 +6,7 @@ I built this to allow Tolgee to be integrated into Astro. This is a prototype, t
 Available here https://astro-tolgee-poc.pages.dev
 
 **How to install:**
-Modify you astro.config.mjs file as follows:
+Modify you `astro.config.mjs` file as follows:
 
 ```js
 // path to the astro integration (plugin)
@@ -28,3 +28,6 @@ The integration takes an object with the keys `options` and `plugins`. This allo
 Known issues:
 - Tolgee DevTools doesn't seem to work yet
 - Modification of the translations requires a reset of the server. It might be using the wrong lifecycle hook but couldn't figure out which one would solve my use case.
+
+Update:
+- Added tolgee/web to `Layout.astro` as it makes the client SDK available and fixes Tolgee detection. Highlighting works but clicking and opening the dialog fails......
