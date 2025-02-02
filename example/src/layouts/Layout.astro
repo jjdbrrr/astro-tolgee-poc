@@ -6,6 +6,13 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro + Tolgee</title>
+		<script>
+			import { DevTools, Tolgee, FormatSimple } from '@tolgee/web';
+			const tolgee = Tolgee().use(DevTools()).use(FormatSimple()).init({
+				language: 'en',
+			});
+			tolgee.run();
+		</script>
 	</head>
 	<body>
 		<ul>
