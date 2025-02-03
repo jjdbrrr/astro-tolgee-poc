@@ -9,21 +9,23 @@ interface TolgeeConfig {
 }
 
 export default function createIntegration(config: TolgeeConfig): AstroIntegration {
+    const doSetup = async () => {
+        if (!(globalThis as any).__tolgee) {
+            const chainer = Tolgee();
+            config.plugins.forEach(plugin => chainer.use(plugin));
+            const tolgee = chainer.init(config.options);
+            await tolgee.run();
+            (globalThis as any).__tolgee = tolgee;
+        }
+    };
     return {
         name: 'astro-tolgee',
         hooks: {
-            'astro:config:setup': async () => {
-                if (!(globalThis as any).__tolgee) {
-                    const chainer = Tolgee();
-                    config.plugins.forEach(plugin => chainer.use(plugin));
-                    const tolgee = chainer.init(config.options);
-                    await tolgee.run();
-                    (globalThis as any).__tolgee = tolgee;
-                }
-            },
+            'astro:server:setup': doSetup,
+            'astro:build:setup': doSetup,
         }
     };
-}
+};
 
 export const useTranslation = async (language?: string) => {
     const tolgee: TolgeeInstance = (globalThis as any).__tolgee;
