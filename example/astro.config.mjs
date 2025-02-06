@@ -16,6 +16,9 @@ export default defineConfig({
                 language: 'en',
                 apiUrl: 'https://app.tolgee.io',
                 apiKey: process.env.TOLGEE_API_KEY,
+                observerOptions: {
+                    fullKeyEncode: true,
+                },
                 // For production
                 staticData: {
                     'en': localeEn,
