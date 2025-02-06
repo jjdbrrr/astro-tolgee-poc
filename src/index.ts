@@ -11,9 +11,16 @@ interface TolgeeConfig {
 export default function createIntegration(config: TolgeeConfig): AstroIntegration {
     const doSetup = async () => {
         if (!(globalThis as any).__tolgee) {
+            const options = { 
+                observerOptions: { 
+                    fullKeyEncode: true,
+                    ...config.options.observerOptions || {} 
+                },
+                ...config.options
+            };
             const chainer = Tolgee();
             config.plugins.forEach(plugin => chainer.use(plugin));
-            const tolgee = chainer.init(config.options);
+            const tolgee = chainer.init(options);
             await tolgee.run();
             (globalThis as any).__tolgee = tolgee;
         }
